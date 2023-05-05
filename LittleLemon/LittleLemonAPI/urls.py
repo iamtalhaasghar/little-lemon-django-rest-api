@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import menu_items
+from .views import menu_items, MenuItemListCreateAPIView
 urlpatterns = [
-    path("menu-items", menu_items, name="")
+    path("menu-items/", MenuItemListCreateAPIView.as_view(), name="")
 ]

@@ -4,6 +4,8 @@ from django.http import JsonResponse
 from .models import MenuItem
 from django.views.decorators.csrf import csrf_exempt
 from django.forms import model_to_dict
+from .serializers import MenuItemSerializer
+from rest_framework import generics
 
 # Create your views here.
 
@@ -18,4 +20,11 @@ def menu_items(request):
         menu_item = MenuItem(name=name, price=price)
         menu_item.save()
         return JsonResponse(model_to_dict(menu_item))
-        
+
+
+class MenuItemListCreateAPIView(generics.ListCreateAPIView):
+    queryset = MenuItem.objects.all()
+    serializer_class = MenuItemSerializer
+
+
+     

@@ -4,10 +4,10 @@ from django.db import models
 
 class MenuItem(models.Model):
 
-    name = models.TextField()
-    price = models.TextField()
+    name = models.CharField(max_length=255)
+    price = models.IntegerField()
 
-    def __str__(self):
-        return self.name
+    # def __str__(self):
+    #     return self.name
 
     
