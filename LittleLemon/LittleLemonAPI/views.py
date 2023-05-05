@@ -22,9 +22,13 @@ def menu_items(request):
         return JsonResponse(model_to_dict(menu_item))
 
 
-class MenuItemListCreateAPIView(generics.ListCreateAPIView):
+class MenuItemsView(generics.ListCreateAPIView):
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
 
 
-     
+class SingleMenuItemView(generics.RetrieveDestroyAPIView):
+    queryset = MenuItem.objects.all()
+    serializer_class = MenuItemSerializer
+
+
